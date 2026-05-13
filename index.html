@@ -27,13 +27,14 @@
         .read-more-target { 
             max-height: 0; 
             overflow: hidden; 
-            transition: max-height 0.5s ease; 
+            transition: max-height 1.5s cubic-bezier(0, 1, 0, 1); 
             opacity: 0;
         }
         .read-more-state:checked ~ .read-more-target { 
             max-height: 5000px; 
             opacity: 1;
-            padding-top: 1.5rem;
+            padding-top: 2rem;
+            transition: max-height 2s ease-in-out;
         }
         .read-more-trigger {
             cursor: pointer;
@@ -43,24 +44,43 @@
             text-transform: uppercase;
             font-weight: 800;
             font-size: 0.9rem;
-            margin-top: 1rem;
+            margin-top: 2rem;
             letter-spacing: 0.1em;
         }
         .read-more-state:checked ~ .read-more-trigger { display: none; }
+
+        .article-img {
+            filter: grayscale(100%) brightness(0.7);
+            transition: all 0.5s ease;
+        }
+        article:hover .article-img {
+            filter: grayscale(0%) brightness(1);
+            transform: scale(1.02);
+        }
+
+        /* Career Runway Specific Styling */
+        .exp-card {
+            border-bottom: 1px solid #1a1a1a;
+            padding-bottom: 3rem;
+            margin-bottom: 3rem;
+        }
+        .exp-card:last-child {
+            border-bottom: none;
+        }
     </style>
 </head>
 <body>
 
     <header class="relative flex flex-col justify-start items-center text-center hero-bg">
         <div class="pt-[60vh] w-full px-4">
-            <div class="bg-black/2 backdrop-blur-sm p-6 md:p-8 max-w-2xl mx-auto rounded-lg mb-8">
+            <div class="bg-black/40 backdrop-blur-md p-6 md:p-8 max-w-2xl mx-auto rounded-lg mb-8 border border-white/10">
                 <span class="uppercase tracking-[0.4em] text-amber-500 mb-4 block text-[10px] font-bold">Executive Representation</span>
                 
                 <div class="space-y-3">
-                    <h1 class="text-4xl md:text-6xl font-extrabold tracking-tighter uppercase leading-none text-white drop-shadow-2xl whitespace-nowrap">
+                    <h1 class="text-4xl md:text-6xl font-extrabold tracking-tighter uppercase leading-none text-white drop-shadow-2xl">
                         Pradeep Charan
                     </h1>
-                    <p class="text-xs md:text-sm font-semibold text-zinc-300 tracking-[0.2em] uppercase leading-relaxed">
+                    <p class="text-xs md:text-sm font-semibold text-zinc-300 tracking-[0.2em] uppercase">
                         Sales, Strategy & Operations Leader
                     </p>
                     <p class="text-[10px] md:text-xs font-medium text-zinc-400 tracking-[0.1em] uppercase">
@@ -75,143 +95,174 @@
         <div class="flex flex-nowrap justify-between items-center text-center gap-2 md:gap-8">
             <div class="flex-1">
                 <p class="text-zinc-500 uppercase text-[9px] md:text-[10px] tracking-[0.1em] font-bold mb-1">Experience</p>
-                <p class="text-xl md:text-3xl font-bold text-white">16+ Years</p>
+                <p class="text-xl md:text-2xl lg:text-3xl font-bold text-white whitespace-nowrap">16+ Years</p>
             </div>
             <div class="flex-1 border-l border-zinc-800">
                 <p class="text-zinc-500 uppercase text-[9px] md:text-[10px] tracking-[0.1em] font-bold mb-1">Portfolio</p>
-                <p class="text-xl md:text-3xl font-bold text-white">$18.0M</p>
+                <p class="text-xl md:text-2xl lg:text-3xl font-bold text-white whitespace-nowrap">$18.0M</p>
             </div>
             <div class="flex-1 border-l border-zinc-800">
                 <p class="text-zinc-500 uppercase text-[9px] md:text-[10px] tracking-[0.1em] font-bold mb-1">Leadership</p>
-                <p class="text-xl md:text-3xl font-bold text-white">150+ Scale</p>
+                <p class="text-xl md:text-2xl lg:text-3xl font-bold text-white whitespace-nowrap">150+ Scale</p>
             </div>
             <div class="flex-1 border-l border-zinc-800">
                 <p class="text-zinc-500 uppercase text-[9px] md:text-[10px] tracking-[0.1em] font-bold mb-1">Key Deal</p>
-                <p class="text-xl md:text-3xl font-bold text-white">$2.0M</p>
+                <p class="text-xl md:text-2xl lg:text-3xl font-bold text-white whitespace-nowrap">$2.0M</p>
             </div>
         </div>
     </section>
 
-    <section class="py-32 bg-white text-black px-6 text-left">
-        <div class="max-w-6xl mx-auto">
-            <h2 class="text-4xl font-extrabold mb-24 uppercase tracking-widest text-center">Career Runway</h2>
-            <div class="space-y-24">
-                <div>
-                    <div class="flex flex-col md:flex-row justify-between items-baseline mb-2 border-b border-zinc-200 pb-2">
-                        <h3 class="text-2xl font-bold uppercase tracking-tight">Customer Success Partner (GCC & ODC)</h3>
-                        <span class="text-sm font-bold text-zinc-400 font-mono">2025 — PRESENT</span>
-                    </div>
-                    <p class="text-amber-700 text-sm font-bold uppercase tracking-widest mb-6 text-left">Alten India Pvt. Ltd</p>
-                    <div class="text-zinc-600 text-lg leading-relaxed max-w-4xl space-y-4 text-left">
-                        <p>Leading global client transformations through the architecture of Global Capability Centers and specialized technology FTE deployment.</p>
-                        <p class="font-bold text-zinc-900 border-l-2 border-amber-600 pl-4 text-sm uppercase tracking-wide">Achievement: Scaled key accounts by 20% through service innovation and multi-million dollar ODC setups.</p>
-                    </div>
+    <section class="py-32 px-6 max-w-6xl mx-auto text-left">
+        <h2 class="text-4xl font-extrabold mb-24 uppercase tracking-widest text-center text-white">Career Runway</h2>
+        <div class="space-y-12">
+            
+            <div class="exp-card">
+                <div class="flex flex-col md:flex-row justify-between items-baseline mb-4">
+                    <h3 class="text-2xl font-bold uppercase tracking-tight text-white">Customer Success Partner (GCC & ODC)</h3>
+                    <span class="text-sm font-bold text-amber-500 font-mono">2025 — PRESENT</span>
                 </div>
-
-                <div>
-                    <div class="flex flex-col md:flex-row justify-between items-baseline mb-2 border-b border-zinc-200 pb-2">
-                        <h3 class="text-2xl font-bold uppercase tracking-tight">Independent Consultant & Growth Hacker</h3>
-                        <span class="text-sm font-bold text-zinc-400 font-mono">2019 — 2024</span>
-                    </div>
-                    <p class="text-amber-700 text-sm font-bold uppercase tracking-widest mb-6 text-left">Tech Startup Strategy & Automotive R&D</p>
-                    <div class="text-zinc-600 text-lg leading-relaxed max-w-4xl space-y-4 text-left">
-                        <p>Directed GTM strategy and operational roadmaps for international tech startups and pioneered R&D for automotive EV conversion projects.</p>
-                        <p class="font-bold text-zinc-900 border-l-2 border-amber-600 pl-4 text-sm uppercase tracking-wide text-left">Achievement: Managed country-wide operations for a Japanese Legal-Tech startup and vehicle diagnostic systems.</p>
-                    </div>
-                </div>
-
-                <div>
-                    <div class="flex flex-col md:flex-row justify-between items-baseline mb-2 border-b border-zinc-200 pb-2 text-nowrap">
-                        <h3 class="text-2xl font-bold uppercase tracking-tight">Manager, Key Automotive Accounts & Operations</h3>
-                        <span class="text-sm font-bold text-zinc-400 font-mono">2012 — 2019</span>
-                    </div>
-                    <p class="text-amber-700 text-sm font-bold uppercase tracking-widest mb-6 text-left">Tata Technologies</p>
-                    <div class="text-zinc-600 text-lg leading-relaxed max-w-4xl space-y-4 text-left text-left">
-                        <p>Spearheaded North American and European inside sales and operations for aerospace and automotive giants globally.</p>
-                        <p class="font-bold text-zinc-900 border-l-2 border-amber-600 pl-4 text-sm uppercase tracking-wide">Achievement: Directed a $16.5M sales operation and managed an ODC of 150+ members for Tier-1 OEMs.</p>
-                    </div>
-                </div>
+                <p class="text-zinc-400 text-sm font-bold uppercase tracking-widest mb-4">Alten India Pvt. Ltd</p>
+                <p class="text-zinc-500 leading-relaxed mb-6">Leading global client transformations through the architecture of Global Capability Centers and specialized technology FTE deployment.</p>
+                <p class="font-bold text-white border-l-2 border-amber-600 pl-4 text-sm uppercase tracking-wide">Achievement: Scaled key accounts by 20% through service innovation and multi-million dollar ODC setups.</p>
             </div>
+
+            <div class="exp-card">
+                <div class="flex flex-col md:flex-row justify-between items-baseline mb-4">
+                    <h3 class="text-2xl font-bold uppercase tracking-tight text-white">Independent Consultant & Growth Hacker</h3>
+                    <span class="text-sm font-bold text-amber-500 font-mono">2019 — 2024</span>
+                </div>
+                <p class="text-zinc-400 text-sm font-bold uppercase tracking-widest mb-4">Tech Startup Strategy & Automotive R&D</p>
+                <p class="text-zinc-500 leading-relaxed mb-6">Directed GTM strategy and operational roadmaps for international tech startups and pioneered R&D for automotive EV conversion projects.</p>
+                <p class="font-bold text-white border-l-2 border-amber-600 pl-4 text-sm uppercase tracking-wide">Achievement: Managed country-wide operations for a Japanese Legal-Tech startup and vehicle diagnostic systems.</p>
+            </div>
+
+            <div class="exp-card">
+                <div class="flex flex-col md:flex-row justify-between items-baseline mb-4">
+                    <h3 class="text-2xl font-bold uppercase tracking-tight text-white">Manager, Key Automotive Accounts & Operations</h3>
+                    <span class="text-sm font-bold text-amber-500 font-mono">2012 — 2019</span>
+                </div>
+                <p class="text-zinc-400 text-sm font-bold uppercase tracking-widest mb-4">Tata Technologies</p>
+                <p class="text-zinc-500 leading-relaxed mb-6">Spearheaded North American and European inside sales and operations for aerospace and automotive giants globally.</p>
+                <p class="font-bold text-white border-l-2 border-amber-600 pl-4 text-sm uppercase tracking-wide">Achievement: Directed a $16.5M sales operation and managed an ODC of 150+ members for Tier-1 OEMs.</p>
+            </div>
+
         </div>
     </section>
 
     <section class="py-32 px-6 max-w-7xl mx-auto text-left">
         <h2 class="text-4xl font-extrabold mb-24 uppercase tracking-widest text-center text-white">Executive Editorial</h2>
-        <div class="grid md:grid-cols-2 gap-16 text-white">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-white">
             
-            <article class="p-10 border border-zinc-800 bg-zinc-900/10">
-                <span class="text-amber-500 text-xs font-bold uppercase tracking-widest">Thought Leadership</span>
-                <h3 class="text-2xl font-bold mt-6 mb-6 uppercase tracking-tight">The Core of Business Strategy</h3>
-                <p class="text-zinc-500 text-lg leading-relaxed">Strategy is not a document; it is a living organism of decisions. Robust strategies marry vision with granular operational reality.</p>
-                <input type="checkbox" class="read-more-state" id="post-1" />
-                <div class="read-more-target text-zinc-400 text-lg space-y-6">
-                    <p>True strategy begins with identifying the TAM as a collection of human problems waiting for an efficient solution. Strategy without execution is just a daydream.</p>
+            <article class="p-0 border border-zinc-800 bg-zinc-900/10 overflow-hidden rounded-sm flex flex-col h-full">
+                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200" alt="Corporate Office" class="w-full h-64 object-cover article-img">
+                <div class="p-8 flex flex-col flex-grow">
+                    <span class="text-amber-500 text-xs font-bold uppercase tracking-widest">Global Operations</span>
+                    <h3 class="text-2xl font-bold mt-4 mb-4 uppercase tracking-tight">GCC vs ODC: More Than Just a Name Change</h3>
+                    <p class="text-zinc-500 text-lg leading-relaxed italic mb-4">Understanding why a GCC is a strategic entity, while an ODC is a tactical extension.</p>
+                    <div class="mt-auto">
+                        <input type="checkbox" class="read-more-state" id="post-gcc-odc" />
+                        <div class="read-more-target text-zinc-400 text-base space-y-4 leading-relaxed">
+                            <p class="font-bold text-white uppercase text-xs tracking-widest">I. The Ownership & IP Paradigm</p>
+                            <p>An Offshore Development Center (ODC) is primarily a partnered model designed for fast project execution. However, a Global Capability Center (GCC) is a wholly owned captive model. The differentiator is the control over data and long-term strategic alignment.</p>
+                            <p class="font-bold text-white uppercase text-xs tracking-widest">II. Transitioning from Arbitrage to Innovation</p>
+                            <p>A true GCC integrates analytics and core business functions into a single strategic unit, eliminating vendor margins and aligning directly with the brand's culture.</p>
+                        </div>
+                        <label for="post-gcc-odc" class="read-more-trigger">Read Full Analysis</label>
+                    </div>
                 </div>
-                <label for="post-1" class="read-more-trigger">Read More</label>
             </article>
 
-            <article class="p-10 border border-zinc-800 bg-zinc-900/10">
-                <span class="text-amber-500 text-xs font-bold uppercase tracking-widest">Technology</span>
-                <h3 class="text-2xl font-bold mt-6 mb-6 uppercase tracking-tight">The Rise of Agentic AI</h3>
-                <p class="text-zinc-500 text-lg leading-relaxed">Moving past Chatbots into the era of Agents. Agentic AI represents a fundamental shift in business automation.</p>
-                <input type="checkbox" class="read-more-state" id="post-2" />
-                <div class="read-more-target text-zinc-400 text-lg space-y-6">
-                    <p>Agentic AI identifies vendors and negotiates rates autonomously. In my experience, these workflows reduce manual overhead by up to 40%.</p>
+            <article class="p-0 border border-zinc-800 bg-zinc-900/10 overflow-hidden rounded-sm flex flex-col h-full">
+                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1200" alt="Robotics" class="w-full h-64 object-cover article-img">
+                <div class="p-8 flex flex-col flex-grow">
+                    <span class="text-amber-500 text-xs font-bold uppercase tracking-widest">Industrial Tech</span>
+                    <h3 class="text-2xl font-bold mt-4 mb-4 uppercase tracking-tight">Agentic AI: The Nervous System of Manufacturing</h3>
+                    <p class="text-zinc-500 text-lg leading-relaxed italic mb-4">Moving past prescriptive automation toward self-healing production lines.</p>
+                    <div class="mt-auto">
+                        <input type="checkbox" class="read-more-state" id="post-ai-manufacturing" />
+                        <div class="read-more-target text-zinc-400 text-base space-y-4 leading-relaxed">
+                            <p class="font-bold text-white uppercase text-xs tracking-widest">I. Adaptive Agents</p>
+                            <p>Agentic AI is "operational." These agents act on delegated authority, recalibrating machinery in real-time to prevent line halts without human intervention.</p>
+                            <p class="font-bold text-white uppercase text-xs tracking-widest">II. Lifecycle Optimization</p>
+                            <p>Agents refine strategies at machine timescales, reducing unplanned downtime by up to 45%.</p>
+                        </div>
+                        <label for="post-ai-manufacturing" class="read-more-trigger">Read Full Thesis</label>
+                    </div>
                 </div>
-                <label for="post-2" class="read-more-trigger">Read More</label>
             </article>
 
-            <article class="p-10 border border-zinc-800 bg-zinc-900/10">
-                <span class="text-amber-500 text-xs font-bold uppercase tracking-widest">Global Operations</span>
-                <h3 class="text-2xl font-bold mt-6 mb-6 uppercase tracking-tight">GCC Success Factors</h3>
-                <p class="text-zinc-500 text-lg leading-relaxed">A GCC must transition from a cost center to a value engine via Governance and Technology Parity.</p>
-                <input type="checkbox" class="read-more-state" id="post-3" />
-                <div class="read-more-target text-zinc-400 text-lg space-y-6">
-                    <p>Success requires treating a GCC as an extension of the primary tech ecosystem. Creating a seamless culture of innovation is essential for sustained success.</p>
+            <article class="p-0 border border-zinc-800 bg-zinc-900/10 overflow-hidden rounded-sm flex flex-col h-full">
+                <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&q=80&w=1200" alt="Strategy" class="w-full h-64 object-cover article-img">
+                <div class="p-8 flex flex-col flex-grow">
+                    <span class="text-amber-500 text-xs font-bold uppercase tracking-widest">Client Strategy</span>
+                    <h3 class="text-2xl font-bold mt-4 mb-4 uppercase tracking-tight">The Art of Perfect Positioning</h3>
+                    <p class="text-zinc-500 text-lg leading-relaxed italic mb-4">How to use Perceptual Mapping to carve out a dominant market niche.</p>
+                    <div class="mt-auto">
+                        <input type="checkbox" class="read-more-state" id="post-positioning" />
+                        <div class="read-more-target text-zinc-400 text-base space-y-4 leading-relaxed">
+                            <p>Strategic positioning is about being distinct. By identifying "White Spaces" in the market, you shift the conversation from price to indispensable value.</p>
+                        </div>
+                        <label for="post-positioning" class="read-more-trigger">Read Full Strategy</label>
+                    </div>
                 </div>
-                <label for="post-3" class="read-more-trigger">Read More</label>
             </article>
 
-            <article class="p-10 border border-zinc-800 bg-zinc-900/10">
-                <span class="text-amber-500 text-xs font-bold uppercase tracking-widest">Managed Delivery</span>
-                <h3 class="text-2xl font-bold mt-6 mb-6 uppercase tracking-tight">Managed Projects vs Staffing</h3>
-                <p class="text-zinc-500 text-lg leading-relaxed">Staffing is a band-aid; the ODC model is the cure for long-term scalability and knowledge retention.</p>
-                <input type="checkbox" class="read-more-state" id="post-4" />
-                <div class="read-more-target text-zinc-400 text-lg space-y-6">
-                    <p>ODCs provide accountability that staffing lacks. Process specialization ensures that when you own the delivery, you own the quality.</p>
+            <article class="p-0 border border-zinc-800 bg-zinc-900/10 overflow-hidden rounded-sm flex flex-col h-full">
+                <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&q=80&w=1200" alt="Automotive" class="w-full h-64 object-cover article-img">
+                <div class="p-8 flex flex-col flex-grow">
+                    <span class="text-amber-500 text-xs font-bold uppercase tracking-widest">Automotive Tech</span>
+                    <h3 class="text-2xl font-bold mt-4 mb-4 uppercase tracking-tight">The Connected Ecosystem</h3>
+                    <p class="text-zinc-500 text-lg leading-relaxed italic mb-4">The transition to zonal computing architectures and software-defined vehicles.</p>
+                    <div class="mt-auto">
+                        <input type="checkbox" class="read-more-state" id="post-auto-tech" />
+                        <div class="read-more-target text-zinc-400 text-base space-y-4 leading-relaxed">
+                            <p>Vehicles are becoming software platforms. Zonal architectures allow for Over-the-Air (OTA) updates, gain new features long after leaving the showroom.</p>
+                        </div>
+                        <label for="post-auto-tech" class="read-more-trigger">Read Full POV</label>
+                    </div>
                 </div>
-                <label for="post-4" class="read-more-trigger">Read More</label>
             </article>
 
-            <article class="p-10 border border-zinc-800 bg-zinc-900/10">
-                <span class="text-amber-500 text-xs font-bold uppercase tracking-widest">Automotive Tech</span>
-                <h3 class="text-2xl font-bold mt-6 mb-6 uppercase tracking-tight">The Connected Ecosystem</h3>
-                <p class="text-zinc-500 text-lg leading-relaxed">Connectivity transforms vehicles into software platforms, solving pain points for OEMs and dealerships alike.</p>
-                <input type="checkbox" class="read-more-state" id="post-5" />
-                <div class="read-more-target text-zinc-400 text-lg space-y-6">
-                    <p>For OEMs, connectivity means real-time health data. For customers, it offers safety features like remote start and driver behavior management.</p>
+            <article class="p-0 border border-zinc-800 bg-zinc-900/10 overflow-hidden rounded-sm flex flex-col h-full">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1200" alt="Growth" class="w-full h-64 object-cover article-img">
+                <div class="p-8 flex flex-col flex-grow">
+                    <span class="text-amber-500 text-xs font-bold uppercase tracking-widest">Growth Strategy</span>
+                    <h3 class="text-2xl font-bold mt-4 mb-4 uppercase tracking-tight">The GTM Playbook Masterclass</h3>
+                    <p class="text-zinc-500 text-lg leading-relaxed italic mb-4">Repeatable sales motions and Ideal Customer Profiles (ICP).</p>
+                    <div class="mt-auto">
+                        <input type="checkbox" class="read-more-state" id="post-gtm" />
+                        <div class="read-more-target text-zinc-400 text-base space-y-4 leading-relaxed">
+                            <p>A GTM playbook is a manual for growth. It aligns your sales motion to the specific buyer's journey, ensuring repeatable and scalable revenue.</p>
+                        </div>
+                        <label for="post-gtm" class="read-more-trigger">Read Full Playbook</label>
+                    </div>
                 </div>
-                <label for="post-5" class="read-more-trigger">Read More</label>
             </article>
 
-            <article class="p-10 border border-zinc-800 bg-zinc-900/10">
-                <span class="text-amber-500 text-xs font-bold uppercase tracking-widest">Growth Strategy</span>
-                <h3 class="text-2xl font-bold mt-6 mb-6 uppercase tracking-tight">The GTM Playbook</h3>
-                <p class="text-zinc-500 text-lg leading-relaxed">New market entry requires a surgical strategy aligning product capabilities with local market gaps.</p>
-                <input type="checkbox" class="read-more-state" id="post-6" />
-                <div class="read-more-target text-zinc-400 text-lg space-y-6">
-                    <p>GTM must be consulting-led. Key pillars include ICP identification and feedback loops from the field to the product team.</p>
+            <article class="p-0 border border-zinc-800 bg-zinc-900/10 overflow-hidden rounded-sm flex flex-col h-full">
+                <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&q=80&w=1200" alt="Sales" class="w-full h-64 object-cover article-img">
+                <div class="p-8 flex flex-col flex-grow">
+                    <span class="text-amber-500 text-xs font-bold uppercase tracking-widest">Sales Excellence</span>
+                    <h3 class="text-2xl font-bold mt-4 mb-4 uppercase tracking-tight">Boosting the Sales Pipeline</h3>
+                    <p class="text-zinc-500 text-lg leading-relaxed italic mb-4">Transforming the pipeline into a predictable revenue engine.</p>
+                    <div class="mt-auto">
+                        <input type="checkbox" class="read-more-state" id="post-pipeline" />
+                        <div class="read-more-target text-zinc-400 text-base space-y-4 leading-relaxed">
+                            <p>Rigorous qualification frameworks like MEDDIC are non-negotiable. Discovery is where consultative selling shines, uncovering root challenges to build trust.</p>
+                        </div>
+                        <label for="post-pipeline" class="read-more-trigger">Read Full Analysis</label>
+                    </div>
                 </div>
-                <label for="post-6" class="read-more-trigger">Read More</label>
             </article>
+
         </div>
     </section>
 
     <section class="py-32 px-6 max-w-5xl mx-auto text-center border-t border-zinc-900">
         <h2 class="text-4xl font-extrabold mb-16 uppercase tracking-widest text-white">Why Pradeep?</h2>
-        <div class="bg-zinc-900/20 p-12 border border-zinc-800/50 text-lg md:text-xl leading-relaxed text-zinc-300 italic font-light text-center">
+        <div class="bg-zinc-900/20 p-12 border border-zinc-800/50 text-lg md:text-xl leading-relaxed text-zinc-300 italic font-light text-center rounded-sm">
             <p class="mb-10">
-                Most leaders specialize in either the "Vision" or the "Engine." Pradeep is the rare architect who masters both. With over 16 years of leadership at giants like Tata Technologies and Reliance, blended with the grit of an entrepreneur, he doesn't just manage businesses—he engineers ecosystems.
+                Most leaders specialize in either the "Vision" or the "Engine." Pradeep is the rare architect who masters both. With over 16 years of high-stakes leadership at giants like Tata Technologies and Reliance, blended with the grit of an entrepreneur, he doesn't just manage businesses—he engineers ecosystems.
             </p>
             <p>
                 He is the choice for partners who require a leader with the technical empathy of an engineer and the surgical precision of a global strategist.
@@ -221,7 +272,7 @@
 
     <footer class="py-40 text-center bg-black border-t border-zinc-900">
         <h2 class="text-4xl font-extrabold mb-12 uppercase tracking-tighter text-white">Secure the Strategy.</h2>
-        <a href="mailto:pradeepcharan2002@gmail.com" class="inline-block bg-white text-black px-16 py-6 uppercase font-extrabold text-xs tracking-widest hover:bg-amber-500 hover:text-white transition duration-300 font-sans">Contact Pradeep</a>
+        <a href="mailto:pradeepcharan2002@gmail.com" class="inline-block bg-white text-black px-16 py-6 uppercase font-extrabold text-xs tracking-widest hover:bg-amber-500 hover:text-white transition duration-300">Contact Pradeep</a>
     </footer>
 
 </body>
